@@ -1,0 +1,27 @@
+TODO: figure out what plugis of these I could try to use
+    ○ aerial.nvim 
+    ○ alpha-nvim 
+    ○ astrotheme 
+    ○ better-escape.nvim 
+    ○ bufdelete.nvim 
+    ○ cmp-buffer 
+    ○ dressing.nvim 
+    ○ friendly-snippets 
+    ○ guess-indent.nvim 
+    ○ heirline.nvim 
+    ○ lspkind.nvim 
+    ○ mason-null-ls.nvim 
+    ○ neo-tree.nvim 
+    ○ neovim-session-manager 
+    ○ nui.nvim 
+    ○ null-ls.nvim 
+    ○ nvim-colorizer.lua 
+    ○ nvim-notify 
+    ○ nvim-ts-autotag 
+    ○ nvim-ts-context-commentstring 
+    ○ nvim-ufo 
+    ○ nvim-window-picker 
+    ○ promise-async 
+    ○ SchemaStore.nvim 
+    ○ smart-splits.nvim 
+    ○ toggleterm.nvim 

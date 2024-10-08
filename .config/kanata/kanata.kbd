@@ -1,0 +1,22 @@
+(defcfg process-unmapped-keys yes)
+(defsrc spc)
+
+(defalias
+oneshot_shift (one-shot-press 500 lsft)
+oneshot_alt (one-shot-press 500 lalt) 
+taphold_esc_lctl (tap-hold-press 150 500 esc lctl)
+oneshot_meta (one-shot-press 500 lmet)
+)
+
+(deflayermap (base-layer)
+lsft @oneshot_shift
+rsft @oneshot_shift
+lalt @oneshot_alt  
+ralt C-b 
+caps @taphold_esc_lctl 
+lmet @oneshot_meta
+rmet @oneshot_meta
+esc  XX
+lctl XX
+rctl XX
+)

@@ -1,0 +1,95 @@
+[alias]
+	blame = "blame -w -C -C -C"
+	ca = "commit -am"
+	cm = "commit -m"
+	hardupdate = "!git fetch && git reset --hard \"origin/$(git rev-parse --abbrev-ref HEAD)\""
+	ap = "commit --all --amend --no-edit && git push --force-with-lease"
+	noedit = "commit -a --amend --no-edit"
+	cfx = "commit --fixup HEAD~ -m"
+	pf = "push --force-with-lease"
+	ri = "rebase --autosquash -i"
+	ra = "rebase --abort"
+	rc = "rebase --continue"
+	st = "status"
+	stash = "stash --all"
+	log = -c diff.external=difft log -p --ext-diff
+	show = show --ext-diff
+
+[branch]
+	sort = "-committerdate"
+
+[rebase]
+	autosquash = true
+
+[column]
+	ui = "auto"
+
+[core]
+	autocrlf = false
+	editor = "/usr/bin/env nvim --clean"
+
+[credential]
+	helper = "store"
+
+[diff]
+	colorMoved = zebra
+	colormovedws = "allow-indentation-change"
+	external = "/usr/bin/env difft --color auto --background light --display side-by-side"
+
+[advice]
+	# warn when ponting to a commit instead of branch
+	detachedHead = true
+	addIgnoredFile = false
+
+[difftool]
+	prompt = false
+
+[difftool "difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+	difftool = true
+
+[help]
+	autocorrect = "5"
+
+[merge]
+	conflictstyle = "zdiff3"
+	tool = nvimdiff
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+
+[rerere]
+	autoUpdate = true
+	enabled = true
+
+[mergetool]
+	prompt = false
+
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+
+[url "git@gist.github.com:"]
+	pushInsteadOf = "https://gist.github.com/"
+
+[url "git@github.com:"]
+	pushInsteadOf = "https://github.com/"
+
+[url "git@gitlab.com:"]
+	pushInsteadOf = "https://gitlab.com/"
+
+[user]
+	name = Orion Gonzalez
+	email = ardi@ardis.dev
+
+[includeIf "gitdir:~/work/**"]
+	path = ~/work/.gitconfig
+[maintenance]
+	repo = /home/ardi/repos/mail
