@@ -16,3 +16,7 @@ disabled = false
 
 [time]
 disabled = false
+
+[custom.rust_custom]
+command = 'echo foo' # shows output of command
+detect_files = ['Cargo.toml'] # can specify filters but wildcards are not supported

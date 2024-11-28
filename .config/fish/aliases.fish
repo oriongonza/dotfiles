@@ -18,11 +18,11 @@ alias lsa 'eza -la'
 
 alias mount 'sudo mount --mkdir'
     
-alias g '/usr/bin/env git'
-alias git "echo 'use g instead' "
+alias g 'git'
+alias c 'cargo'
 
-alias c '/usr/bin/env cargo'
-alias cargo "echo 'use c ' "
+alias cdu 'cd mail/mail-uniffi'
+alias cdc 'cd mail/mail-common'
 
 alias i "sudo pacman -S"
 
@@ -30,6 +30,10 @@ alias refish 'source ~/.config/fish/config.fish'
 
 function mkcd
     mkdir -p $argv; and cd $argv
+end
+
+function cadd
+    cargo add $argv; and cargo-sort
 end
 
 function cncd
@@ -63,7 +67,7 @@ end
 
 
 function xbless
-    ./x test $argv --bless
+    ./x test --keep-stage-std 1 --skip-stage0-validation $argv --bless
 end
 
 function rc

@@ -34,7 +34,8 @@
 [diff]
 	colorMoved = zebra
 	colormovedws = "allow-indentation-change"
-	external = "/usr/bin/env difft --color auto --background light --display side-by-side"
+	external = "/usr/bin/env difft --display inline"
+	; external = "/usr/bin/env difft --color auto --background light --display side-by-side"
 
 [advice]
 	# warn when ponting to a commit instead of branch
@@ -62,6 +63,7 @@
 
 [push]
 	autoSetupRemote = true
+	followTags = true
 
 [rerere]
 	autoUpdate = true
@@ -93,3 +95,4 @@
 	path = ~/work/.gitconfig
 [maintenance]
 	repo = /home/ardi/repos/mail
+	repo = /home/ardi/repos/prust

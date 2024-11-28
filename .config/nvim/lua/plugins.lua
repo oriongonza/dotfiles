@@ -49,6 +49,7 @@ require('lazy').setup({
 
   {
     "folke/neoconf.nvim",
+    dependencies = { 'folke/neodev.nvim' },
     opts = {}
   },
   {
@@ -184,9 +185,10 @@ require('lazy').setup({
           autoload_configurations = true
         },
         completion = {
-          snippets = {
-            custom = {},
-          },
+          snippets = nil,
+          -- snippets = {
+          --   custom = {},
+          -- },
         },
         --       imports = {
         --         granularity = {
@@ -206,9 +208,9 @@ require('lazy').setup({
         server = {
           extraEnv = { CARGO_TARGET_DIR = "target/analyzer" },
         },
-        check = {
-          command = "clippy"
-        },
+        -- check = {
+        --   command = "clippy"
+        -- },
         workspace = {
           symbol = {
             search = {
