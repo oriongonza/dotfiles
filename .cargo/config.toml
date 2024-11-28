@@ -7,6 +7,11 @@ rustflags = [
 	# "-Zthreads=4"
 ]
 
+[target.nightly-x86_64-unknown-linux-gnu]
+rustflags = ["-Zthreads=4", "-Ztrack-diagnostics", "-Zpanic-abort-tests"]
+linker = "clang"
+codegen-backend = "cranelift"
+
 [build]
 rustc-wrapper = "/usr/bin/sccache"
 
@@ -16,11 +21,5 @@ fc = "clippy --fix --allow-dirty --allow-no-vcs"
 t = "nextest run"
 a = "cargo-add"
 
-# [unstable]
-# codegen-backend = true
-#
-# [profile.dev]
-# codegen-backend = "cranelift"
-#
-# [profile.test]
-# codegen-backend = "llvm"
+[unstable]
+codegen-backend = true
