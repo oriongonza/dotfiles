@@ -1,10 +1,11 @@
+[unstable]
+codegen-backend = true
+
 [target.x86_64-unknown-linux-gnu]
 linker = "/bin/clang"
 rustflags = [
 	"-Clink-arg=-fuse-ld=/bin/mold",
 	"-Ctarget-cpu=native",
-	# "-Znext-solver",
-	# "-Zthreads=4"
 ]
 
 [target.nightly-x86_64-unknown-linux-gnu]
@@ -12,14 +13,8 @@ rustflags = ["-Zthreads=4", "-Ztrack-diagnostics", "-Zpanic-abort-tests"]
 linker = "clang"
 codegen-backend = "cranelift"
 
-[build]
-rustc-wrapper = "/usr/bin/sccache"
-
 [alias]
-f = "fix --allow-dirty --allow-no-vcs"
-fc = "clippy --fix --allow-dirty --allow-no-vcs"
 t = "nextest run"
 a = "cargo-add"
-
-[unstable]
-codegen-backend = true
+f = "fix --allow-dirty --allow-no-vcs"
+fc = "clippy --fix --allow-dirty --allow-no-vcs"

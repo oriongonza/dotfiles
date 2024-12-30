@@ -14,6 +14,8 @@ if not test -n "$DISPLAY" -a "$XDG_VTNR" -eq 1
   export _JAVA_AWT_WM_NONREPARENTING=1
   export XCURSOR_SIZE=24
 
+  kanata &
+  brightnessctl set 30%
   exec Hyprland
 end
 

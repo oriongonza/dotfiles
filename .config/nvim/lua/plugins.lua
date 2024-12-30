@@ -12,8 +12,13 @@ if not vim.loop.fs_stat(lazypath) then
   }
 end
 
+require("ra-cfg")
 require('lazy').setup({
 
+  {
+    "williamboman/mason.nvim",
+    config = function() require('mason').setup({}) end
+  },
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb', --GitHub
   'tpope/vim-sleuth',
@@ -32,17 +37,19 @@ require('lazy').setup({
   {
     "kylechui/nvim-surround",
     event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
-    end
+    config = function() require("nvim-surround").setup({}) end
   },
 
   {
+
     'windwp/nvim-autopairs',
-    event = "InsertEnter",
+    -- event = "InsertEnter",
     config = true
+  },
+
+  {
+    'windwp/nvim-ts-autotag',
+    opts = {}
   },
 
   "ii14/neorepl.nvim",
@@ -179,47 +186,6 @@ require('lazy').setup({
   {
     'mrcjkb/rustaceanvim',
     lazy = false,
-    config = function()
-      vim.g.rustaceanvim = {
-        dap = {
-          autoload_configurations = true
-        },
-        completion = {
-          snippets = nil,
-          -- snippets = {
-          --   custom = {},
-          -- },
-        },
-        --       imports = {
-        --         granularity = {
-        --           group = "module",
-        --         },
-        --         prefix = "self",
-        --       },
-        cargo = {
-          buildScripts = {
-            enable = true,
-          },
-          extraArgs = { "--target-dir=target/analyzer" },
-        },
-        procMacro = {
-          enable = true
-        },
-        server = {
-          extraEnv = { CARGO_TARGET_DIR = "target/analyzer" },
-        },
-        -- check = {
-        --   command = "clippy"
-        -- },
-        workspace = {
-          symbol = {
-            search = {
-              kind = "all_symbols",
-            },
-          },
-        },
-      }
-    end
   },
 
   {

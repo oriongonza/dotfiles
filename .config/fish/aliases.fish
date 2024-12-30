@@ -62,12 +62,12 @@ function read_later
 end
 
 function bc 
-    ./x build --incremental --keep-stage-std 1 --skip-stage0-validation
+    ./x build library --keep-stage-std 1 --skip-stage0-validation $argv
 end
 
 
 function xbless
-    ./x test --keep-stage-std 1 --skip-stage0-validation $argv --bless
+    ./x test --keep-stage-std 1 --skip-stage0-validation --bless $argv 
 end
 
 function rc

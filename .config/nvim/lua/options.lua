@@ -1,4 +1,3 @@
-
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
@@ -46,7 +45,6 @@ vim.o.timeoutlen = 300
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
--- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 vim.opt.scrolloff = 2
 
@@ -65,6 +63,6 @@ vim.opt.inccommand = 'split'
 
 -- Show which line your cursor is on
 vim.opt.cursorline = true
-vim.opt.helpheight=99999
+vim.opt.helpheight = 99999
 
-vim.lsp.inlay_hint.enable(true)
+vim.lsp.inlay_hint.enable(false)

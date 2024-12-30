@@ -91,6 +91,13 @@ require("aerial").setup({
   end,
 })
 
+
+-- execute any `g` command in a new vsplit
+vim.keymap.set('n', 'gw', function()
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-w><C-v>', true, false, true), 'n', false)
+  vim.api.nvim_feedkeys('g', 'm', false)
+end, { noremap = true, silent = true })
+
 local nmap = function(keys, func, desc)
   vim.keymap.set('n', keys, func, { desc = desc })
 end
@@ -174,7 +181,8 @@ rsmap('ee', "explainError")
 rsmap('em', "expandMacro")
 rsmap('eg', "crateGraph")
 rsmap('ef', "flyCheck")
-rsmap('ev', "view")
+rsmap('evh', "view hir")
+rsmap('evm', "view mir")
 rsmap('gp', "parentModule")
 rsmap('c', "openCargo")
 rsmap('K', "hover")
