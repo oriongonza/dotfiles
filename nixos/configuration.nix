@@ -43,7 +43,6 @@
     isNormalUser = true;
     description = "Orion Gonzalez";
     extraGroups = [ "wheel" "networkmanager" "docker" "uinput"];
-    hashedPassword = "$y$j9T$Lxqx4S.07BJu55J3f4MvA/$d7n1xcH5TUdPqSRTpeZMVXVKpRV4AQUUiW7r0edH7zD";
   };
 
   programs.mtr.enable = true;

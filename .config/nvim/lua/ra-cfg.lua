@@ -15,6 +15,7 @@ vim.g.rustaceanvim = {
   --         prefix = "self",
   --       },
   cargo = {
+    targetDir = true,
     buildScripts = {
       enable = true,
     },
@@ -26,9 +27,9 @@ vim.g.rustaceanvim = {
   server = {
     extraEnv = { CARGO_TARGET_DIR = "target/analyzer" },
   },
-  -- check = {
-  --   command = "clippy"
-  -- },
+  check = {
+    command = "check"
+  },
   workspace = {
     symbol = {
       search = {

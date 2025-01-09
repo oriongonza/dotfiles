@@ -73,3 +73,10 @@ end
 function rc
     build/host/stage1/bin/rustc $argv
 end
+
+
+function rcc
+    refish
+    build/host/stage1/bin/rustc test.rs
+end
+
