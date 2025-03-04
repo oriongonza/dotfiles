@@ -2,7 +2,7 @@
 
 # Inserts a blank line between shell prompts
 add_newline = true
-command_timeout = 30
+command_timeout = 300
 
 [character] # The name of the module we are configuring is 'character'
 

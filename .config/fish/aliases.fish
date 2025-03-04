@@ -10,7 +10,6 @@ alias ls 'eza \
     --all \
     --icons=auto \
     --hyperlink \
-    --git \
     --group-directories-first \
     --long --no-permissions --no-user \
 '
@@ -21,8 +20,12 @@ alias mount 'sudo mount --mkdir'
 alias g 'git'
 alias c 'cargo'
 
-alias cdu 'cd mail/mail-uniffi'
-alias cdc 'cd mail/mail-common'
+alias cdev 'rustup run stage1 -- /home/ardi/repos/cargo/target/release/cargo'
+
+alias sc 'sesh connect $(sesh list | fzf)'
+
+alias vpnu 'sudo wg-quick up work'
+alias vpnd 'sudo wg-quick down work'
 
 alias i "sudo pacman -S"
 

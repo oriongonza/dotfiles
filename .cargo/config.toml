@@ -1,5 +1,18 @@
-[unstable]
-codegen-backend = true
+# [unstable]
+# codegen-backend = true
+#
+# [profile.dev]
+# codegen-backend = "cranelift"
+#
+# [target.x86_64-unknown-linux-gnu]
+# linker = "clang"
+# rustflags = [
+# 	"-Clink-arg=-fuse-ld=/bin/mold",
+#         "-Ctarget-cpu=native",
+# 	"-Zthreads=8", 
+# 	"-Ztrack-diagnostics",
+# 	"-Zpanic-abort-tests"
+# ]
 
 [target.x86_64-unknown-linux-gnu]
 linker = "/bin/clang"
@@ -8,16 +21,6 @@ rustflags = [
 	"-Ctarget-cpu=native",
 ]
 
-[target.nightly-x86_64-unknown-linux-gnu]
-linker = "clang"
-rustflags = [
-	"-Clink-arg=-fuse-ld=/bin/mold",
-	"-Ctarget-cpu=native",
-	"-Zthreads=4", 
-	"-Ztrack-diagnostics",
-	"-Zpanic-abort-tests"
-]
-codegen-backend = "cranelift"
 
 [alias]
 t = "nextest run"

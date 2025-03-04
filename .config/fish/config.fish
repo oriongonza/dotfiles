@@ -16,12 +16,12 @@ if not test -n "$DISPLAY" -a "$XDG_VTNR" -eq 1
 
   kanata &
   brightnessctl set 30%
-  exec Hyprland
+  # exec Hyprland
 end
 
 set -gx ANDROID_HOME "/home/ardi/Android/Sdk"
 # set -gx ANDROID_SDK_HOME "/home/ardi/Android/Sdk"
-set -gx ANDROID_NDK_HOME "/home/ardi/Android/Sdk/ndk/26.3.11579264"
+# set -gx ANDROID_NDK_HOME "/home/ardi/Android/Sdk/ndk/26.3.11579264"
 set -gx PNPM_HOME "/home/ardi/.local/share/pnpm"
 
 if not string match -q -- $PNPM_HOME $PATH
@@ -30,4 +30,6 @@ end
 
 set -U fish_user_paths ~/bin $fish_user_paths
 set -U fish_user_paths "~/.cargo/env " $fish_user_paths
+set -U RUST_LOG 1
 set -U GIT_EXTERNAL_DIFF
+

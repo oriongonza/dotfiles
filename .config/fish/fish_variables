@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR GIT_EXTERNAL_DIFF:\x1d
+SETUVAR RUST_LOG:1
 SETUVAR __fish_initialized:3400
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr

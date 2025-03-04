@@ -2,6 +2,7 @@
 	blame = "blame -w -C -C -C"
 	ca = "commit -am"
 	cm = "commit -m"
+	po = "!git pull origin \"$(git rev-parse --abbrev-ref HEAD)\""
 	hardupdate = "!git fetch && git reset --hard \"origin/$(git rev-parse --abbrev-ref HEAD)\""
 	ap = "commit --all --amend --no-edit && git push --force-with-lease"
 	noedit = "commit -a --amend --no-edit"
@@ -89,10 +90,12 @@
 
 [user]
 	name = Orion Gonzalez
-	email = ardi@ardis.dev
+	email = oriongonza42@pm.me
 
 [includeIf "gitdir:~/work/**"]
 	path = ~/work/.gitconfig
 [maintenance]
 	repo = /home/ardi/repos/mail
 	repo = /home/ardi/repos/prust
+; [submodule]
+; 	recurse = true

@@ -22,7 +22,7 @@ vim.g.rustaceanvim = {
     extraArgs = { "--target-dir=target/analyzer" },
   },
   procMacro = {
-    enable = true
+    enable = false
   },
   server = {
     extraEnv = { CARGO_TARGET_DIR = "target/analyzer" },

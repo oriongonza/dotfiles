@@ -1,4 +1,3 @@
--- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Highlight on yank
@@ -44,8 +43,7 @@ end
 
 local tbi = require('telescope.builtin')
 local function tscope(key, f, desc)
-  local fn =
-      vim.keymap.set('n', '<leader>f' .. key, tbi[f], { desc = '[f]ind ' .. get_desc(f, desc) })
+  vim.keymap.set('n', '<leader>f' .. key, tbi[f], { desc = '[f]ind ' .. get_desc(f, desc) })
 end
 
 local function tscope_drop(key, f, desc)
@@ -110,7 +108,6 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open float
 nmap('<leader>w', ':w<CR>', '[w]rite file')
 nmap('<leader>q', ':q<CR>', '[q]uit file')
 nmap('<leader>x', ':wqa<CR>', 'e[x]it nvim')
-nmap('<leader>n', ':enew<CR>', '[n]ew buffer')
 
 nmap('<leader>v', ':vs<CR>', '[v]ertical split')
 
