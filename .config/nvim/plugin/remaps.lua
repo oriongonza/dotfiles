@@ -155,39 +155,6 @@ nmap('<leader>lh', vim.lsp.buf.document_highlight, '[L]sp [h]ighlight')
 nmap('<leader>lH', vim.lsp.buf.clear_references, '[L]sp [h]ighlight')
 nmap('<leader>lr', ':LspRestart<CR>', '[L]sp [r]eload')
 
-local rsmap = function(keys, func)
-  vim.keymap.set('n', '<leader>m' .. keys, ':RustLsp ' .. func .. '<CR>', { desc = func })
-end
-
--- Rust keymaps start with <leader>m
-rsmap('l', 'logFile')
-rsmap('l', "logFile")
-rsmap('r', "run")
-rsmap('s', "workspaceSymbol")
-rsmap('r', "reloadWorkspace")
-rsmap('d', "openDocs")
-rsmap('a', "codeAction")
-rsmap('m', "moveItem")
-rsmap('j', "joinLines")
-rsmap('t', "testables")
-rsmap('d', "debuggables")
-rsmap('epr', "rebuildProcMacro")
-rsmap('ed', "externalDocs")
-rsmap('et', "syntaxTree")
-rsmap('ee', "explainError")
-rsmap('em', "expandMacro")
-rsmap('eg', "crateGraph")
-rsmap('ef', "flyCheck")
-rsmap('evh', "view hir")
-rsmap('evm', "view mir")
-rsmap('gp', "parentModule")
-rsmap('c', "openCargo")
-rsmap('K', "hover")
-rsmap('er', "runnables")
-rsmap('rd', "debug")
-rsmap('s', "ssr")
-rsmap('er', "renderDiagnostic")
-
 tscope_lsp('d', "lsp_definitions", '[d]efinition')
 tscope_lsp('i', "lsp_implementations", '[i]mplementation')
 tscope_lsp('t', "lsp_type_definitions", '[t]ype [d]efinition')
@@ -229,14 +196,5 @@ vim.keymap.set("n", "<Esc>", function()
   killPopups()
 end)
 
-local function goto_yanked_text()
-  local yank_contents = vim.fn.getreg('"')
-  -- todo
-end
-
-vim.keymap.set('n', 'gy', goto_yanked_text, { desc = "gF for yanked test" })
-
--- Create a Neovim command that calls the Lua function
-vim.api.nvim_create_user_command('Goto', goto_yanked_text, {})
 
 vim.keymap.set('n', '<Leader>lih', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end)

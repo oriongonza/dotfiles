@@ -1,39 +1,45 @@
-function Dark()
-	vim.cmd.colorscheme("default")
-	--vim.cmd.colorscheme("rose-pine")
-	vim.cmd.colorscheme("github_dark")
+-- vim.cmd.colorscheme("default")
+--vim.cmd.colorscheme("rose-pine")
+-- vim.cmd.colorscheme("github_dark")
 
 
-	vim.api.nvim_set_hl(0, "Normal", { bg = "#000000" })
-	local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
-	vim.api.nvim_set_hl(0, "NormalNC", { bg = normal.bg })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = normal.bg })
-	vim.api.nvim_set_hl(0, "WinSeparator", { bg = "none" })
-	vim.api.nvim_set_hl(0, "CustomGroup", { bg = normal.bg })
-
-	-- To make transparent:
-	--vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	--vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+local next_theme = "default"
+local function default_theme()
+  vim.api.nvim_set_hl(0, "Normal", {})
+  local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
+  vim.api.nvim_set_hl(0, "NormalNC", { bg = normal.bg })
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = normal.bg })
+  vim.api.nvim_set_hl(0, "WinSeparator", { bg = "none" })
+  vim.api.nvim_set_hl(0, "CustomGroup", { bg = normal.bg })
+  next_theme = "dark"
 end
 
-function Light()
-	vim.cmd.colorscheme("github_light_high_contrast")
+local function dark_theme()
+  vim.cmd.colorscheme("github_dark")
+  next_theme = "light"
 end
 
-function SetSystemTheme()
-	local handle = io.popen("gsettings get org.gnome.desktop.interface color-scheme")
-	if handle == nil then
-		return
-	end
-	local result = handle:read("*a")
-	handle:close()
-
-	if string.match(string.lower(result), "dark") then
-		Dark()
-	else
-		Light()
-		Dark()
-	end
+local function light_theme()
+  vim.cmd.colorscheme("github_light_high_contrast")
+  next_theme = "default"
 end
 
-SetSystemTheme()
+
+-- If theme = nil then rotate,
+local function set_theme(theme)
+  if theme == "default" then
+    default_theme()
+  elseif theme == "dark" then
+    dark_theme()
+  elseif theme == "light" then
+    light_theme()
+  elseif theme == nil then
+    set_theme(next_theme)
+  end
+end
+
+vim.api.nvim_create_user_command("Colorscheme", function(opts)
+  set_theme(opts.args)
+end, { nargs = '?' })
+
+dark_theme()
