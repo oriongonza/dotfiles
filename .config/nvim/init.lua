@@ -193,7 +193,7 @@ require('lazy').setup({
     "nvim-neorg/neorg",
     lazy = false,
   },
-  "supermaven-inc/supermaven-nvim",
+  -- "supermaven-inc/supermaven-nvim",
   {
     "monkoose/neocodeium",
     event = "VeryLazy",
