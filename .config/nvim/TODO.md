@@ -1,5 +1,4 @@
 TODO: figure out what plugis of these I could try to use
-    ○ aerial.nvim 
     ○ alpha-nvim 
     ○ astrotheme 
     ○ better-escape.nvim 

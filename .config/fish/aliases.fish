@@ -24,8 +24,9 @@ alias cdev 'rustup run stage1 -- /home/ardi/repos/cargo/target/release/cargo'
 
 alias sc 'sesh connect $(sesh list | fzf)'
 
-alias vpnu 'sudo wg-quick up work'
-alias vpnd 'sudo wg-quick down work'
+alias vpnu 'sudo wg-quick up work2'
+alias vpnd 'sudo wg-quick down work2'
+
 
 alias i "sudo pacman -S"
 

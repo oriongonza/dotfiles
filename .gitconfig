@@ -12,6 +12,8 @@
 	ra = "rebase --abort"
 	rc = "rebase --continue"
 	st = "status"
+	wl = "worktree list"
+	wm = "worktree move"
 	stash = "stash --all"
 	log = -c diff.external=difft log -p --ext-diff
 	show = show --ext-diff

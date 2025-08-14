@@ -96,22 +96,27 @@ require('lazy').setup({
     },
   },
 
-  -- Useful plugin to show you pending keybinds.
-  -- {                     -- Useful plugin to show you pending keybinds.
-  --   'folke/which-key.nvim',
-  --   event = 'VimEnter', -- Sets the loading event to 'VimEnter'
-  --   config = function() -- This is the function that runs, AFTER loading
-  --     require('which-key').setup()
-  --     -- Document existing key chains
-  --     -- require('which-key').register {
-  --     --   ['<leader>l'] = { name = '[l]sp', _ = 'which_key_ignore' },
-  --     --   ['<leader>f'] = { name = '[f]ind', _ = 'which_key_ignore' },
-  --     --   ['<leader>h'] = { name = '[h]arpoon', _ = 'which_key_ignore' },
-  --     --   ['<leader>G'] = { name = '[G]it', _ = 'which_key_ignore' },
-  --     --   ['<leader>W'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-  --     -- }
-  --   end,
-  -- },
+  {
+    'folke/which-key.nvim',
+    event = 'VimEnter', -- Sets the loading event to 'VimEnter'
+    config = function() -- This is the function that runs, AFTER loading
+      require('which-key').setup()
+      -- Document existing key chains
+      require('which-key').register =
+      {
+        { "<leader>G",  group = "[G]it" },
+        { "<leader>G_", hidden = true },
+        { "<leader>W",  group = "[W]orkspace" },
+        { "<leader>W_", hidden = true },
+        { "<leader>f",  group = "[f]ind" },
+        { "<leader>f_", hidden = true },
+        { "<leader>h",  group = "[h]arpoon" },
+        { "<leader>h_", hidden = true },
+        { "<leader>l",  group = "[l]sp" },
+        { "<leader>l_", hidden = true },
+      }
+    end,
+  },
 
   {
     -- Set lualine as statusline
@@ -193,7 +198,6 @@ require('lazy').setup({
     "nvim-neorg/neorg",
     lazy = false,
   },
-  -- "supermaven-inc/supermaven-nvim",
   {
     "monkoose/neocodeium",
     event = "VeryLazy",
