@@ -104,3 +104,5 @@
 	repo = /home/ardi/repos/prust
 ; [submodule]
 ; 	recurse = true
+[init]
+	defaultBranch = master

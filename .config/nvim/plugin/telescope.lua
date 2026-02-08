@@ -1,7 +1,7 @@
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
-    file_ignore_patterns = { ".git/", "node_modules/", "target/", "%.snap" },
+    file_ignore_patterns = { ".git/", "node_modules/", "target/", "%.snap", "3rdparty", ".venv/" },
     mappings = {
       i = {
         ['<C-u>'] = false,

@@ -1,22 +1,20 @@
-vim.api.nvim_create_user_command('Date', function(opts)
-  local arg = opts.args:lower()
-  local format_str
+local function setup_time_mappings()
+  local time_fns = {
+    x = { fmt = "%Y-%m-%d %H:%M:%S", name = "timestamp" },
+    d = { fmt = "%Y-%m-%d", name = "date" },
+    t = { fmt = "%H:%M:%S", name = "time" },
+    w = { fmt = "%A", name = "weekday" },
+    i = { fmt = "%Y%m%d%H%M%S", name = "sortable" },
+    u = { fmt = "%s", name = "unix epoch" },
+  }
 
-  if arg == 'time' then
-    format_str = '%Y %b %d, %H:%M:%S' -- Date and time
-  elseif arg == 'timeonly' then
-    format_str = '%H:%M:%S'           -- Time only
-  else
-    format_str = '%Y %b %d'           -- Default: Date only
+  for key, opts in pairs(time_fns) do
+    vim.keymap.set("n", "<leader>t" .. key, function()
+      vim.api.nvim_put({ os.date(opts.fmt) }, "c", true, true)
+    end, {
+      desc = string.format("Time: %s → %s", opts.name, os.date(opts.fmt))
+    })
   end
+end
 
-  -- Insert the formatted date/time using :put
-  local s = vim.fn.strftime(format_str)
-  vim.api.nvim_put({ s }, 'l', true, false)
-end, {
-  nargs = '?',                    -- Accepts 0-1 arguments
-  complete = function()
-    return { 'time', 'timeonly' } -- Auto-completion options
-  end,
-  desc = "Insert date/time: [time] = date+time, [timeonly] = time only"
-})
+setup_time_mappings()

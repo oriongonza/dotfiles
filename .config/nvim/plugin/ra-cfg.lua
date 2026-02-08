@@ -1,6 +1,6 @@
 vim.g.rustaceanvim = {
   tools = {
-    enable_clippy = os.getenv("RA_CLIPPY") ~= nil,
+    enable_clippy = os.getenv("RA_CLIPPY") ~= true,
     enable_nextest = true,
   },
   dap = {

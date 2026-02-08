@@ -27,6 +27,8 @@ alias sc 'sesh connect $(sesh list | fzf)'
 alias vpnu 'sudo wg-quick up work2'
 alias vpnd 'sudo wg-quick down work2'
 
+alias nous 'uv run nous.py'
+
 
 alias i "sudo pacman -S"
 

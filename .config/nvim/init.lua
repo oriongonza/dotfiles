@@ -198,17 +198,6 @@ require('lazy').setup({
     "nvim-neorg/neorg",
     lazy = false,
   },
-  {
-    "monkoose/neocodeium",
-    event = "VeryLazy",
-    config = function()
-      local neocodeium = require("neocodeium")
-      neocodeium.setup()
-      vim.keymap.set("i", "<Tab>", neocodeium.accept)
-      vim.keymap.set("i", "<C-j>", neocodeium.accept_line)
-      vim.keymap.set("i", "<C-]>", neocodeium.cycle)
-    end,
-  },
 
   require 'plugs.gitsigns',
   require 'plugs.oil',
@@ -222,3 +211,6 @@ require('lazy').setup({
 )
 
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippet" } })
+
+-- Load the per-dir-cfg code
+require("system.per_dir_cfg").setup()
